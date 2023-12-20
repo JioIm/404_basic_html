@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="다시만드는 기본 홈페이지">
+    <meta name="description" content="다시만드는 기본 홈페이지">
+
+    <title>다시만드는 기본 홈페이지</title>
+    <link rel="shortcut icon" href="./images/favicon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        .main_slide .itm {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .main_slide .itm .slide-image {
+            position: absolute;
+            inset: 0 0 0 0;
+        }
+
+        .main_slide .itm01 .slide-image {
+            height: 100vh;
+            background: url(./images/img_visual01.jpg) no-repeat left center/cover;
+        }
+
+        .main_slide .itm02 .slide-image {
+            height: 100vh;
+            background: url(./images/img_visual02.jpg) no-repeat left center/cover;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main_visual">
+        <div class="main_slide swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide itm01 itm">
+                    <div class="slide-image" data-swiper-parallax='45%'></div>
+                </div>
+                <div class="swiper-slide itm02 itm">
+                    <div class="slide-image" data-swiper-parallax='45%'></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const mainSlide = new Swiper('.main_slide', {
+            loop: true,
+            parallax: true,
+            speed: 1000,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            slideActiveClass: 'on',
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+.itm01,
+.itm02,
+.itm03 {
+    width: 1200px;
+    height: 500px;
+}
+
+.itm01 {
+    background: salmon;
+}
+
+.itm02 {
+    background: lavender;
+}
+
+.itm03 {
+    background: pink;
+}
+
+.main_visual_slide .arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    width: 100%;
+}
+
+.main_visual_slide .arrows>* {
+    position: absolute;
+}
+
+.main_visual_slide .arrows .left {
+    cursor: pointer;
+    user-select: none;
+    left: 15px;
+}
+
+.main_visual_slide .arrows .right {
+    cursor: pointer;
+    user-select: none;
+    right: 15px;
+}
+
+.main_visual_slide .arrows span {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 16px;
+    font-size: 32px;
+    transform: translate(0, -50%);
+}
+
+.main_visual_slide .dots {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    z-index: 999;
+    max-width: 1200px;
+    width: 100%;
+    height: 60px;
+    padding: 0 15px;
+    transform: translate(-50%, 0);
+
+    display: flex;
+}
+
+.main_visual_slide .dots>* {
+    position: relative;
+    flex: 1;
+    background: #fff;
+}
+
+.main_visual_slide .dots>*::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: skyblue;
+}
+
+.main_visual_slide .dots>*.on::before {
+    width: 100%;
+    transition: width 0.5s;
+}
+
+.main_visual_slide .desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+
+    transform: translate(-50%, -50%);
+}
+
+.main_visual_slide .swiper-slide .desc strong {
+    display: block;
+    margin: 0 0 18px 0;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+
+    transform: translate(0, 100px);
+}
+
+.main_visual_slide .swiper-slide .desc p {
+    font-size: 16px;
+    color: #fff;
+    opacity: 0;
+    transform: translate(0, 100px);
+}
+
+.main_visual_slide .swiper-slide.swiper-slide.on .desc strong {
+    transform: translate(0, 0);
+    transition: 0.5s;
+    opacity: 1;
+}
+
+.main_visual_slide .swiper-slide.swiper-slide.on .desc p {
+    transform: translate(0, 0);
+    transition: 0.5s 0.5s;
+    opacity: 1;
+}
+
+.main_visual_slide .num {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+
+    text-align: right;
+    height: 0;
+}
+
+.main_visual_slide .num strong {
+    color: #fff;
+    font-size: 32px;
+}
