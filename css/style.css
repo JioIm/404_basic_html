@@ -1,8 +1,11 @@
 :root {
-    --mc: #09847F;
-    --sc: #B4613D;
+    --mc: #09847f;
+    --sc: #b4613d;
     --wc: #ffffff;
-    --gc: #dddddd;
+    --gc: #f2f2f2;
+    --bg: #f9f9f9;
+    --dc: #dddddd;
+    --bc: #333333;
 }
 
 html {
@@ -14,12 +17,48 @@ body {
 }
 
 .default_btn {
+    position: relative;
+    overflow: hidden;
     display: inline-block;
-    padding: 2.4rem 3.2rem;
+    padding: 1.6rem 3.2rem;
     border: 3px solid var(--mc);
     border-radius: 5rem;
     color: var(--mc);
     font-size: 1.8rem;
+}
+
+.default_btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    background: var(--mc);
+    transition: height 0.3s;
+}
+
+.default_btn:hover::before {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+    color: var(--wc);
+}
+
+.default_btn span::after {
+    content: "\f1e1";
+    font-family: "Material Symbols Outlined";
+    margin: 0 0 0 10px;
+    display: inline-block;
+    transform: translate(0, 3px);
+}
+
+.default_btn span {
+    position: relative;
+}
+
+.default_btn:hover span {
+    color: var(--wc);
 }
 
 .default_btn_w {
@@ -60,6 +99,22 @@ body {
     margin: 0 0 0 10px;
     display: inline-block;
     transform: translate(0, 3px);
+}
+
+.default {
+    padding: 8rem 0;
+}
+
+.default h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0 0 3.2rem 0;
+}
+
+.default h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 0 0 3.2rem 0;
 }
 
 #Header {
@@ -168,6 +223,10 @@ body {
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 } */
 
+.MainVisual {
+    position: relative;
+}
+
 .MainVisual .main_visual_slide {
     border-radius: 0 0 10rem 0;
     overflow: hidden;
@@ -255,10 +314,248 @@ body {
     border-radius: 50%;
 }
 
+.MainVisual .scroll_down {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 999;
+    transform: translate(-50%, 0);
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
 
+    height: 15rem;
+}
 
-/* .MainVisual .main_visual_slide .itm.on p {
-    transform: translate(0, 0);
-    opacity: 1;
-    transition: 0.5s 1s;
-} */
+.MainVisual .scroll_down::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 10rem;
+    width: 1px;
+    background: #fff;
+}
+
+.MainVisual .scroll_down::after {
+    content: "";
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    height: 6px;
+    width: 6px;
+    background: #fff;
+    border-radius: 50%;
+
+    animation: scroll_down 1.5s infinite;
+}
+
+@keyframes scroll_down {
+    0% {
+        top: 5rem;
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        top: 15rem;
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        top: 15rem;
+        transform: translate(-50%, 0) scale(5);
+        opacity: 0;
+    }
+}
+
+.MainInfo {}
+
+.MainInfo .inner {
+    display: flex;
+    gap: 3rem;
+}
+
+.MainInfo .inner>* {
+    flex: 1;
+}
+
+.MainInfo .inner .left {
+    background: var(--bg) url(../images/img_dokdo.png) no-repeat right bottom;
+    padding: 8rem 8rem 8rem 8rem;
+    border-radius: 5.6rem;
+}
+
+.MainInfo .inner .left p {
+    line-height: 2rem;
+    margin: 0 0 10rem 0;
+}
+
+.MainInfo .inner .right {
+    padding: 8rem 8rem 8rem 8rem;
+}
+
+.MainInfo .inner .right .tit_area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 4rem 0;
+    border-bottom: 1px dashed var(--dc);
+    padding: 0 0 1.2rem 0;
+}
+
+.MainInfo .inner .right .tit_area span {
+    font-size: 4rem;
+    padding: 0.8rem;
+    background: var(--gc);
+    border-radius: 50%;
+}
+
+.MainInfo .inner .right .tit_area .tel {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.MainInfo .inner .right .tit_area .qa {
+    background: var(--bc);
+    font-size: 1.4rem;
+    color: var(--wc);
+    padding: 0.8rem 1.6rem;
+    border-radius: 1.6rem;
+}
+
+.MainInfo .inner .right .list li {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    margin: 0 0 1.2rem 0;
+}
+
+.MainInfo .inner .right .list li strong {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 600;
+    padding: 0 0 0 1.6rem;
+}
+
+.MainInfo .inner .right .list li strong::before {
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--mc);
+}
+
+.MainInfo .inner .right .list li p {
+    line-height: 2.4rem;
+    margin: -0.4rem 0 0 0;
+}
+
+.MainInfo .inner .right .list li:last-child strong {
+    letter-spacing: 0.2rem;
+}
+
+.MainCustomer .inner {
+    display: flex;
+    max-width: calc((100% - 1352px)/2 + 1352px);
+    margin: 0 0 0 auto;
+}
+
+.MainCustomer .inner .tit_area {
+    position: relative;
+    flex: 0 1 50rem;
+    padding: 1.6rem 0 0 0;
+}
+
+.MainCustomer .inner .tit_area::before {
+    content: "";
+    position: absolute;
+    top: -8rem;
+    right: -8rem;
+    width: 20rem;
+    height: 20rem;
+    border: 5rem solid var(--mc);
+    border-radius: 50%;
+}
+
+.MainCustomer .inner .tit_area p {
+    line-height: 2.4rem;
+    margin: 0 0 4rem 0;
+}
+
+.MainCustomer .inner .slide_area {
+    flex: 1;
+    min-width: 0;
+}
+
+.MainCustomer .inner .slide_area .itm {
+    display: flex;
+    flex-direction: column;
+    padding: 3.2rem;
+    background: var(--gc);
+    border-radius: 3.2rem;
+}
+
+.MainCustomer .inner .slide_area .itm .img_box {
+
+    margin: 0 0 3.2rem 0;
+    border-radius: 1.2rem;
+    height: 24rem;
+    overflow: hidden;
+
+    background: var(--dc) url(../images/img_logo2.svg)no-repeat center center;
+
+}
+
+.MainCustomer .inner .slide_area .itm .cate {
+    margin: 0 0 2.4rem 0;
+    align-self: flex-start;
+    border: 1px solid var(--mc);
+    color: var(--mc);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 1.6rem;
+    padding: 0.4rem 1.6rem;
+}
+
+.MainCustomer .inner .slide_area .itm strong {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 2.4rem 0;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.MainCustomer .inner .slide_area .itm p {
+    display: -webkit-box;
+    white-space: normal;
+    line-height: 2.4rem;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.MainCustomer .main_customer_arrows {}
+
+.MainCustomer .main_customer_arrows button {
+    background: transparent;
+    border: none;
+}
+
+.MainCustomer .main_customer_arrows span {
+    padding: 1.6rem;
+    font-size: 2.4rem;
+    background: var(--bc);
+    color: var(--wc);
+    border-radius: 50%;
+    margin: 0 1rem 0 0;
+}

@@ -51,6 +51,10 @@ body {
     color: #202123;
 }
 
+button {
+    cursor: pointer;
+}
+
 .blind {
     position: absolute;
     clip: rect(0 0 0 0);
